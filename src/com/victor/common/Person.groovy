@@ -1,8 +1,10 @@
 package com.victor.common
 
-import groovy.transform.EqualsAndHashCode
+import groovy.transform.Canonical
+import groovy.transform.TupleConstructor
 
-@EqualsAndHashCode
+@Canonical
+@TupleConstructor
 class Person implements Comparable<Person> {
 
 	int age

@@ -20,7 +20,7 @@ class ArbolBinario<T extends Comparable<T>> implements GroovyTree<T>{
 		if (nodo.leftChild != null) {
 			inOrderTraversal(nodo.leftChild)
 		}
-		println "Nodo: $nodo.data"
+		println "Nodo: $nodo?.data"
 
 		if(nodo.rightChild != null) {
 			inOrderTraversal(nodo.rightChild)
