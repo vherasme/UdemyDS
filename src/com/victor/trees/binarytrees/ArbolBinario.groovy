@@ -2,10 +2,11 @@ package com.victor.trees.binarytrees
 
 import com.victor.common.GroovyTree
 import com.victor.common.NodoArbol
+
 import groovy.transform.Canonical
 
 @Canonical
-class ArbolBinario<T extends Comparable<T>> implements GroovyTree<T>{
+class ArbolBinario<T extends Comparable<T>> implements GroovyTree<T> {
 
 	NodoArbol root
 
