@@ -21,6 +21,16 @@ class MaxHeap<T extends Comparable<T>> extends Heap<T>  {
 		}
 	}
 
+	@Override
+	public void heapSort() {
+		int size = count
+
+		for (int i = 0; i < size; ++i) {
+			int max = poll()
+			println "$max"
+		}
+	}
+
 	private void checkValidHeap(int index) {
 		if (index > 0) {
 			T lastitem = arrayOfNodes[index]

@@ -15,6 +15,8 @@ abstract class Heap<T extends Comparable<T>> {
 	abstract T remove()
 
 	abstract void traversal()
+	
+	abstract void heapSort()
 
 	boolean isEmpty() {
 		return count == 0
@@ -37,9 +39,11 @@ abstract class Heap<T extends Comparable<T>> {
 		int left = getLeftChildIndex(index)
 		int right = getRightChildIndex(index)
 		int indexLargest = index
-
+		
+		//if left is greater than its parent...
 		if (left < count && arrayOfNodes[left] > arrayOfNodes[index])
 			indexLargest = left
+		//But then right is even greater than left...
 		if (right < count && arrayOfNodes[right] > arrayOfNodes[indexLargest])
 			indexLargest = right
 
