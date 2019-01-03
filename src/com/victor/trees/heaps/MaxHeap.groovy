@@ -1,7 +1,5 @@
 package com.victor.trees.heaps
 
-import groovy.transform.Canonical
-
 class MaxHeap<T extends Comparable<T>> extends Heap<T>  {
 
 	public MaxHeap(int size) {
@@ -23,12 +21,14 @@ class MaxHeap<T extends Comparable<T>> extends Heap<T>  {
 
 	@Override
 	public void heapSort() {
-		int size = count
-
+		int size = size()
+		T[] arrayNew = (T[]) new Comparable[size]
 		for (int i = 0; i < size; ++i) {
 			int max = poll()
+			arrayNew[i] = max
 			println "$max"
 		}
+		arrayOfNodes = arrayNew
 	}
 
 	private void checkValidHeap(int index) {
@@ -50,7 +50,8 @@ class MaxHeap<T extends Comparable<T>> extends Heap<T>  {
 
 	@Override
 	public void traversal() {
-		0.upto(count - 1) { i ->
+		int all = arrayOfNodes.length - 1
+		0.upto(all) { i ->
 			T currentElem = arrayOfNodes[i]
 			println currentElem.toString()
 		}
