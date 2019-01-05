@@ -47,7 +47,7 @@ abstract class Heap<T extends Comparable<T>> {
 		if (right < count && arrayOfNodes[right] > arrayOfNodes[indexLargest])
 			indexLargest = right
 
-		//Swap element with the largest found
+		//Swap element with the largest found, unless they have the same index
 		if (index != indexLargest) {
 			swap(index, indexLargest)
 			fixDown(indexLargest)

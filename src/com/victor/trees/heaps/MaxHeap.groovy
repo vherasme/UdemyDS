@@ -50,10 +50,11 @@ class MaxHeap<T extends Comparable<T>> extends Heap<T>  {
 
 	@Override
 	public void traversal() {
-		int all = arrayOfNodes.length - 1
-		0.upto(all) { i ->
-			T currentElem = arrayOfNodes[i]
-			println currentElem.toString()
+		for(int i = 0; i < arrayOfNodes.length; i++) {
+			T elem = arrayOfNodes[i]
+			if (elem == null) 
+				break
+			println elem.toString()
 		}
 	}
 }
