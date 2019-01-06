@@ -22,6 +22,10 @@ abstract class Heap<T extends Comparable<T>> {
 		return count == 0
 	}
 
+	/**
+	 * This method returns the first member of the arrayOfNodes
+	 * 
+	 * */
 	T peek() {
 		return arrayOfNodes[0]
 	}

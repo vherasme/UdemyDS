@@ -1,6 +1,7 @@
 package com.victor.application
 
 import com.victor.trees.heaps.HeapExercises
+import com.victor.trees.heaps.HeapTypes
 import com.victor.trees.heaps.MaxHeap
 
 class Aplication<T> {
@@ -20,6 +21,6 @@ class Aplication<T> {
 		println "Sorting:"
 		mh.heapSort()
 		
-		println HeapExercises.checkHeap(mh.arrayOfNodes, "max")
+		println HeapExercises.checkHeap(mh.arrayOfNodes, HeapTypes.MAX)
 	}
 }
