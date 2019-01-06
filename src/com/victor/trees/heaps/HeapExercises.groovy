@@ -6,8 +6,8 @@ class HeapExercises<T> {
 	static {
 
 		checkHeapMap.put(HeapTypes.MIN, {Comparable[] heap, lastNode ->
-			for (int i = 0; i < lastNode;i++) {
-				if ((heap[i] > heap[2*i - 1] || heap[i] > heap[2*i + 2]))
+			for (int i = 0; i < lastNode; i++) {
+				if ((heap[i] > heap[2*i + 1] || heap[i] > heap[2*i + 2]))
 					return false
 			}
 			return true
@@ -15,8 +15,8 @@ class HeapExercises<T> {
 
 		checkHeapMap.put(HeapTypes.MAX, {Comparable[] heap, lastNode ->
 
-			for (int i = 0; i < lastNode;i++) {
-				if ((heap[i] < heap[2*i - 1] || heap[i] < heap[2*i + 2]))
+			for (int i = 0; i < lastNode; i++) {
+				if ((heap[i] < heap[2*i + 1] || heap[i] < heap[2*i + 2]))
 					return false
 			}
 			return true
@@ -29,7 +29,7 @@ class HeapExercises<T> {
 	 * @param type This value should be either "min" or max
 	 * @return whether the heap is valid or not 
 	 * */
-	static boolean checkHeap(Comparable[] heap, Enum type) {
+	static <T> boolean checkHeap(Comparable<T>[] heap, Enum type) {
 		int lastNode = (heap.length - 2).intdiv(2)
 		return checkHeapMap[type].call(heap, lastNode)
 	}

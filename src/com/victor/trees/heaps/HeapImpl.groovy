@@ -1,9 +1,20 @@
 package com.victor.trees.heaps
 
-class MaxHeap<T extends Comparable<T>> extends Heap<T>  {
+class HeapImpl<T extends Comparable<T>> extends Heap<T>  {
 
-	public MaxHeap(int size) {
-		super(size);
+	public HeapImpl(int size, HeapTypes type) {
+		super(size, type);
+	}
+
+	static final Map<Enum, Closure> checkValid = new HashMap<>()
+	static {
+		checkValid.put(HeapTypes.MAX, {Comparable item, Comparable parentNode ->
+			return item.compareTo(parentNode) > 0
+		})
+
+		checkValid.put(HeapTypes.MIN, {Comparable item, Comparable parentNode ->
+			return item.compareTo(parentNode) < 0
+		})
 	}
 
 	@Override
@@ -36,7 +47,7 @@ class MaxHeap<T extends Comparable<T>> extends Heap<T>  {
 			T lastitem = arrayOfNodes[index]
 			int parentIndex = (index -1).intdiv(2)
 			T parentNode = arrayOfNodes[parentIndex]
-			if (lastitem.compareTo(parentNode) > 0) {
+			if (checkValid[heapType].call(lastitem, parentNode)) {
 				swap(index, parentIndex)
 				checkValidHeap(parentIndex)
 			}
@@ -52,7 +63,7 @@ class MaxHeap<T extends Comparable<T>> extends Heap<T>  {
 	public void traversal() {
 		for(int i = 0; i < arrayOfNodes.length; i++) {
 			T elem = arrayOfNodes[i]
-			if (elem == null) 
+			if (elem == null)
 				break
 			println elem.toString()
 		}

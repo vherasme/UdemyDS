@@ -5,9 +5,22 @@ abstract class Heap<T extends Comparable<T>> {
 	static MAX_SIZE = 40
 	T[] arrayOfNodes
 	int count
+	HeapTypes heapType
 
-	Heap(int size){
+	static final Map<Enum, Closure> heapify = new HashMap<>()
+	static {
+		heapify.put(HeapTypes.MAX, { int i, int j ->
+			return arrayOfNodes[i] > arrayOfNodes[j]
+		})
+
+		heapify.put(HeapTypes.MIN, { int i, int j ->
+			return arrayOfNodes[i] < arrayOfNodes[j]
+		})
+	}
+
+	Heap(int size, HeapTypes type){
 		arrayOfNodes = (T[]) new Comparable[size]
+		heapType = type
 	}
 
 	abstract void add(T item)
@@ -15,7 +28,7 @@ abstract class Heap<T extends Comparable<T>> {
 	abstract T remove()
 
 	abstract void traversal()
-	
+
 	abstract void heapSort()
 
 	boolean isEmpty() {
@@ -31,19 +44,19 @@ abstract class Heap<T extends Comparable<T>> {
 	}
 
 	T poll() {
-		int max = peek()
+		int heapPeak = peek()
 		swap(0, count - 1)
 		count--
-		fixDown(0)
+		fixHeap(0)
 
-		return max
+		return heapPeak
 	}
 
-	void fixDown(int index) {
+	void fixHeap(int index) {
 		int left = getLeftChildIndex(index)
 		int right = getRightChildIndex(index)
 		int indexLargest = index
-		
+
 		//if left is greater than its parent...
 		if (left < count && arrayOfNodes[left] > arrayOfNodes[index])
 			indexLargest = left
@@ -54,7 +67,7 @@ abstract class Heap<T extends Comparable<T>> {
 		//Swap element with the largest found, unless they have the same index
 		if (index != indexLargest) {
 			swap(index, indexLargest)
-			fixDown(indexLargest)
+			fixHeap(indexLargest)
 		}
 	}
 

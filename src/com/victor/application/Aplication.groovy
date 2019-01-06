@@ -2,12 +2,12 @@ package com.victor.application
 
 import com.victor.trees.heaps.HeapExercises
 import com.victor.trees.heaps.HeapTypes
-import com.victor.trees.heaps.MaxHeap
+import com.victor.trees.heaps.HeapImpl
 
 class Aplication<T> {
 
 	static main(args) {
-		MaxHeap<Integer> mh = new MaxHeap<>(9)
+		HeapImpl<Integer> mh = new HeapImpl<>(9, HeapTypes.MIN)
 		mh.add(10)
 		mh.add(888)
 		mh.add(45)
@@ -18,9 +18,7 @@ class Aplication<T> {
 		mh.add(321)
 		println "Traversal:"
 		mh.traversal()
-		println "Sorting:"
-		mh.heapSort()
 		
-		println HeapExercises.checkHeap(mh.arrayOfNodes, HeapTypes.MAX)
+		println HeapExercises.checkHeap(mh.arrayOfNodes, HeapTypes.MIN)
 	}
 }
