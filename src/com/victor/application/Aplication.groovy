@@ -7,20 +7,18 @@ import com.victor.trees.heaps.HeapImpl
 class Aplication<T> {
 
 	static main(args) {
-		HeapImpl<Integer> mh = new HeapImpl<>(9, HeapTypes.MIN)
+		HeapImpl<Integer> mh = new HeapImpl<>(10, HeapTypes.MIN)
+		mh.add(1)
 		mh.add(10)
-		mh.add(888)
-		mh.add(45)
-		mh.add(20)
-		mh.add(33)
-		mh.add(0)
-		mh.add(13)
-		mh.add(321)
+		mh.add(100)
+		mh.add(1000)
+		mh.add(10000)
+		mh.add(100000)
+		mh.add(1000000)
 		println "Traversal:"
 		mh.traversal()
-		
+
 		println "\nAfter sorting"
 		mh.heapSort()
-		
 	}
 }

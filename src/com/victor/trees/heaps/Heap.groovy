@@ -19,7 +19,7 @@ abstract class Heap<T extends Comparable<T>> {
 	}
 
 	Heap(int size, HeapTypes type){
-		arrayOfNodes = (T[]) new Comparable[size]
+		arrayOfNodes = (T[]) new Comparable[size + 1]
 		heapType = type
 	}
 
@@ -48,13 +48,12 @@ abstract class Heap<T extends Comparable<T>> {
 		swap(0, count - 1)
 		count--
 		fixHeap(0)
-
 		return heapPeak
 	}
 
 	void fixHeap(int index) {
-		int left = getLeftChildIndex(index)
-		int right = getRightChildIndex(index)
+		int left = 2 * index + 1
+		int right = 2 * index + 2
 		int indexLargest = index
 
 		//if left is greater than its parent...
@@ -79,21 +78,5 @@ abstract class Heap<T extends Comparable<T>> {
 		T tempNode = arrayOfNodes[indexOne]
 		arrayOfNodes[indexOne] = arrayOfNodes[indexTwo]
 		arrayOfNodes[indexTwo] = tempNode
-	}
-
-	int getLeftChildIndex(int index) {
-		int leftChildIndex = 2 * index + 1
-		if (leftChildIndex > count) {
-			return -1
-		}
-		return leftChildIndex
-	}
-
-	int getRightChildIndex(int index) {
-		int rightChildIndex = 2 * index + 2
-		if (rightChildIndex > count) {
-			return -1
-		}
-		return rightChildIndex
 	}
 }
