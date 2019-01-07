@@ -9,12 +9,12 @@ abstract class Heap<T extends Comparable<T>> {
 
 	static final Map<Enum, Closure> heapify = new HashMap<>()
 	static {
-		heapify.put(HeapTypes.MAX, { int i, int j ->
-			return arrayOfNodes[i] > arrayOfNodes[j]
+		heapify.put(HeapTypes.MAX, { Comparable i, Comparable j ->
+			return (i != null && j != null && i.compareTo(j) > 0)
 		})
 
-		heapify.put(HeapTypes.MIN, { int i, int j ->
-			return arrayOfNodes[i] < arrayOfNodes[j]
+		heapify.put(HeapTypes.MIN, { Comparable i, Comparable j ->
+			return (i != null && j != null && i.compareTo(j) < 0)
 		})
 	}
 
@@ -58,10 +58,10 @@ abstract class Heap<T extends Comparable<T>> {
 		int indexLargest = index
 
 		//if left is greater than its parent...
-		if (left < count && arrayOfNodes[left] > arrayOfNodes[index])
+		if (left < count && heapify[heapType].call(arrayOfNodes[left], arrayOfNodes[index]))
 			indexLargest = left
 		//But then right is even greater than left...
-		if (right < count && arrayOfNodes[right] > arrayOfNodes[indexLargest])
+		if (right < count && heapify[heapType].call(arrayOfNodes[right], arrayOfNodes[indexLargest]))
 			indexLargest = right
 
 		//Swap element with the largest found, unless they have the same index

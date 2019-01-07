@@ -19,6 +19,8 @@ class Aplication<T> {
 		println "Traversal:"
 		mh.traversal()
 		
-		println HeapExercises.checkHeap(mh.arrayOfNodes, HeapTypes.MIN)
+		println "\nAfter sorting"
+		mh.heapSort()
+		
 	}
 }
