@@ -33,13 +33,13 @@ class HeapImpl<T extends Comparable<T>> extends Heap<T>  {
 	@Override
 	public void heapSort() {
 		int size = size()
+		int indexToCheck = (int) count
 		T[] arrayNew = (T[]) new Comparable[size]
 		for (int i = 0; i < size; ++i) {
-			int max = poll()
-			arrayNew[i] = max
+			int max = poll(indexToCheck)
 			println "$max"
+			indexToCheck--
 		}
-		arrayOfNodes = arrayNew
 	}
 
 	private void checkValidHeap(int index) {

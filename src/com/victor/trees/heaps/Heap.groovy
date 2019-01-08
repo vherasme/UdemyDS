@@ -43,30 +43,29 @@ abstract class Heap<T extends Comparable<T>> {
 		return arrayOfNodes[0]
 	}
 
-	T poll() {
+	T poll(int lastIndex) {
 		int heapPeak = peek()
-		swap(0, count - 1)
-		count--
-		fixHeap(0)
+		swap(0, lastIndex - 1)
+		fixHeap(0, lastIndex - 1)
 		return heapPeak
 	}
 
-	void fixHeap(int index) {
+	void fixHeap(int index, int lastIndex) {
 		int left = 2 * index + 1
 		int right = 2 * index + 2
 		int indexLargest = index
 
 		//if left is greater than its parent...
-		if (left < count && heapify[heapType].call(arrayOfNodes[left], arrayOfNodes[index]))
+		if (left < lastIndex && heapify[heapType].call(arrayOfNodes[left], arrayOfNodes[index]))
 			indexLargest = left
 		//But then right is even greater than left...
-		if (right < count && heapify[heapType].call(arrayOfNodes[right], arrayOfNodes[indexLargest]))
+		if (right < lastIndex && heapify[heapType].call(arrayOfNodes[right], arrayOfNodes[indexLargest]))
 			indexLargest = right
 
 		//Swap element with the largest found, unless they have the same index
 		if (index != indexLargest) {
 			swap(index, indexLargest)
-			fixHeap(indexLargest)
+			fixHeap(indexLargest, lastIndex)
 		}
 	}
 
