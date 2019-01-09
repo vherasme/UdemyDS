@@ -1,19 +1,19 @@
 package com.victor.symboltable
 
-class MapaImpl implements Mapa {
+class MapaImpl<T, R> implements Mapa<T, R> {
 
     @Override
-    void put(Object key, Object value) {
+    void put(T key, R value) {
 
     }
 
     @Override
-    Object get(Object key) {
+    R get(T key) {
         return null
     }
 
     @Override
-    boolean contains(Object key) {
+    boolean contains(T key) {
         return false
     }
 }
