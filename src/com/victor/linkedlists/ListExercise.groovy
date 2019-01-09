@@ -1,6 +1,5 @@
 package com.victor.linkedlists
 
-
 import com.victor.common.Nodo
 
 class ListExercise<T> {

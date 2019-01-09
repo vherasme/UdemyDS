@@ -2,13 +2,13 @@ package com.victor.common
 
 interface GroovyTree<T> {
 
-	void traversal()
+    void traversal()
 
-	void insert(T data)
+    void insert(T data)
 
-	void delete(T data)
+    void delete(T data)
 
-	T getMax()
+    T getMax()
 
-	T getMin()
+    T getMin()
 }

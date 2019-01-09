@@ -4,13 +4,13 @@ import com.victor.common.Nodo
 
 interface Pila<T> {
 
-	void push(T element)
+    void push(T element)
 
-	Nodo pop()
+    Nodo pop()
 
-	int size()
+    int size()
 
-	void traverseStack()
-	
-	void peek()
+    void traverseStack()
+
+    void peek()
 }

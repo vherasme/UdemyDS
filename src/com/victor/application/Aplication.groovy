@@ -1,8 +1,7 @@
 package com.victor.application
 
-import com.victor.trees.heaps.HeapExercises
-import com.victor.trees.heaps.HeapTypes
 import com.victor.trees.heaps.HeapImpl
+import com.victor.trees.heaps.HeapTypes
 
 class Aplication<T> {
 

@@ -28,6 +28,7 @@ class HeapExercises<T> {
 	 * @param heap This is the heap to examine
 	 * @param type This value should be either "min" or max
 	 * @return whether the heap is valid or not 
+	 *
 	 * */
 	static <T> boolean checkHeap(Comparable<T>[] heap, Enum type) {
 		int lastNode = (heap.length - 2).intdiv(2)
