@@ -33,7 +33,7 @@ class HeapImpl<T extends Comparable<T>> extends Heap<T> {
     @Override
     void heapSort() {
         int size = size()
-        int indexToCheck = (int) count
+        int indexToCheck = Integer.valueOf(count)
         T[] arrayNew = (T[]) new Comparable[size]
         for (int i = 0; i < size; ++i) {
             int max = poll(indexToCheck)
