@@ -95,6 +95,6 @@ class ListaDobleEnlazada<T extends Comparable<T>> implements Lista<T> {
 
     @Override
     Nodo getRoot() {
-        return root;
+        return root
     }
 }

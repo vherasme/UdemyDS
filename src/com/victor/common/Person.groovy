@@ -22,6 +22,6 @@ class Person implements Comparable<Person> {
 
     @Override
     String toString() {
-        return "Person [age=" + age + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+        return "Person [age=" + age + ", firstName=" + firstName + ", lastName=" + lastName + "]"
     }
 }

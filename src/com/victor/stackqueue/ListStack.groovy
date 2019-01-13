@@ -1,7 +1,6 @@
 package com.victor.stackqueue
 
 import com.victor.common.Nodo
-
 import groovy.transform.Canonical
 
 @Canonical
@@ -32,7 +31,7 @@ class ListStack<T extends Comparable<T>> implements Pila<T> {
         } else {
             println "ListStack is empty"
         }
-        return elemToDelete;
+        return elemToDelete
     }
 
     @Override

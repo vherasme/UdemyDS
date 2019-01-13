@@ -5,9 +5,9 @@ import groovy.transform.EqualsAndHashCode
 @EqualsAndHashCode
 class Nodo<T extends Comparable<T>> {
 
-    Nodo<T> nextNode;
+    Nodo<T> nextNode
     Nodo<T> previousNode
-    T data;
+    T data
 
     boolean hasNext() {
         return nextNode != null
@@ -19,6 +19,6 @@ class Nodo<T extends Comparable<T>> {
 
     @Override
     String toString() {
-        return "Nodo [data=" + data + "]";
+        return "Nodo [data=" + data + "]"
     }
 }

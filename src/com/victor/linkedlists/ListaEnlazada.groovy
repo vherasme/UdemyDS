@@ -89,6 +89,6 @@ class ListaEnlazada<T extends Comparable<T>> implements Lista<T> {
 
     @Override
     String toString() {
-        return "ListaEnlazada [Root Node: " + root + ", Size =" + sizeOfList + "]";
+        return "ListaEnlazada [Root Node: " + root + ", Size =" + sizeOfList + "]"
     }
 }
